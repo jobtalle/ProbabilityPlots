@@ -4,3 +4,12 @@
     align-items: center;
     justify-content: center;
 }
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset input {
+    float: right;
+}

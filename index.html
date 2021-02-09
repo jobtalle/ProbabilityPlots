@@ -11,15 +11,23 @@
         <fieldset>
             <legend>Power</legend>
             <label>
+                Item count
+                <input id="power-count" type="range" min="2" max="6" step="1" value="4" onchange="plotPower.update()">
+            </label>
+            <label>
                 Exponent
-                <input id="quadratic-power" type="range" min="0.2" max="4" step=".01" value="1" onchange="plotQuadratic.update();">
+                <input id="power-power" type="range" min="0.2" max="4" step=".01" value="1" onchange="plotPower.update();">
             </label>
         </fieldset>
         <fieldset>
             <legend>Plateau</legend>
             <label>
+                Item count
+                <input id="plateau-count" type="range" min="2" max="6" step="1" value="4" onchange="plotPlateau.update()">
+            </label>
+            <label>
                 Plateau
-                <input id="plateau-plateau" type="range" min=".01" max="1" step=".01" value=".5" onchange="plotPlateau.update()">
+                <input id="plateau-plateau" type="range" min=".01" max=".99" step=".01" value=".5" onchange="plotPlateau.update()">
             </label>
             <label>
                 Width
@@ -29,6 +37,10 @@
         <fieldset>
             <legend>Sigmoid</legend>
             <label>
+                Item count
+                <input id="sigmoid-count" type="range" min="2" max="6" step="1" value="4" onchange="plotSigmoid.update()">
+            </label>
+            <label>
                 Power
                 <input id="sigmoid-power" type="range" min="1" max="8" step=".01" value="1" onchange="plotSigmoid.update()">
             </label>
@@ -36,21 +48,25 @@
     </form>
     <canvas id="plot" width="600" height="400"></canvas>
 </div>
+<script src="swappedFunction.js"></script>
 <script src="plot.js"></script>
-<script src="plotQuadratic.js"></script>
+<script src="plotPower.js"></script>
 <script src="plotPlateau.js"></script>
 <script src="plotSigmoid.js"></script>
 <script>
     const plot = new Plot(document.getElementById("plot"));
-    const plotQuadratic = new PlotQuadratic(
+    const plotPower = new PlotPower(
         plot,
-        document.getElementById("quadratic-power"));
+        document.getElementById("power-count"),
+        document.getElementById("power-power"));
     const plotPlateau = new PlotPlateau(
         plot,
+        document.getElementById("plateau-count"),
         document.getElementById("plateau-plateau"),
         document.getElementById("plateau-width"));
     const plotSigmoid = new PlotSigmoid(
         plot,
+        document.getElementById("sigmoid-count"),
         document.getElementById("sigmoid-power"));
 </script>
 </body>
