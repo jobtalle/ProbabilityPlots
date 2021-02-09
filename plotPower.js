@@ -9,8 +9,6 @@ const PlotPower = function(plot, count, power) {
     this.plot = plot;
     this.count = count;
     this.power = power;
-
-    this.update();
 };
 
 /**
