@@ -18,5 +18,5 @@ PlotSigmoid.prototype.update = function() {
             return .5 * (x + x) ** Number.parseFloat(this.power.value);
 
         return 1 - .5 * (2 - x - x) ** Number.parseFloat(this.power.value);
-    });
+    },["power: " + this.power.value]);
 };

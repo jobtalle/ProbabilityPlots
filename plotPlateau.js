@@ -20,5 +20,9 @@ PlotPlateau.prototype.update = function() {
         const multiplier = (1 - Math.sin(Math.PI * x)) ** Number.parseFloat(this.width.value);
 
         return (4 * at * at * at * multiplier + .5) ** (Math.log(Number.parseFloat(this.plateau.value)) / Math.log(.5));
-    });
+    },
+    [
+        "plateau: " + this.plateau.value,
+        "width: " + this.width.value
+    ]);
 };

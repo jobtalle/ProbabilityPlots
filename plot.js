@@ -20,6 +20,9 @@ Plot.prototype.PLOT_COLOR = "#d64034";
 Plot.prototype.PLOT_LINE_WIDTH = 2;
 Plot.prototype.RESOLUTION = 3;
 Plot.prototype.STEP = .001;
+Plot.prototype.LEGEND_FONT = "16px sans-serif";
+Plot.prototype.LEGEND_LINE_HEIGHT = 16;
+Plot.prototype.LEGEND_PADDING = 8;
 
 /**
  * Draw the grid lines
@@ -109,13 +112,29 @@ Plot.prototype.drawPlot = function(f) {
 };
 
 /**
+ * Draw the legend
+ * @param {String[]} legend A number of strings to display as a legend
+ */
+Plot.prototype.drawLegend = function(legend) {
+    this.context.font = this.LEGEND_FONT;
+
+    for (let line = 0; line < legend.length; ++line)
+        this.context.fillText(
+            legend[line],
+            this.LEGEND_PADDING + this.PADDING,
+            this.LEGEND_PADDING + this.PADDING + this.LEGEND_LINE_HEIGHT * (line + 1));
+};
+
+/**
  * Draw a plot
  * @param {Function} f A function to plot
+ * @param {String[]} legend A number of strings to display as a legend
  */
-Plot.prototype.draw = function(f) {
+Plot.prototype.draw = function(f, legend) {
     this.context.clearRect(0, 0, this.width, this.height);
 
     this.drawGrid();
     this.drawPlot(f);
     this.drawAxes();
+    this.drawLegend(legend);
 };

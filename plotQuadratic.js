@@ -15,5 +15,9 @@ const PlotQuadratic = function(plot, power) {
  * Update the plot
  */
 PlotQuadratic.prototype.update = function() {
-    this.plot.draw(x => x ** Number.parseFloat(this.power.value));
+    this.plot.draw(
+        x => x ** Number.parseFloat(this.power.value),
+        [
+            "power: " + this.power.value
+        ]);
 };
