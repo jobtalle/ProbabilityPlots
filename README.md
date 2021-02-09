@@ -1,2 +1,3 @@
-# probabilityPlots
+# Probability plots
+
 Plotting probabilities
